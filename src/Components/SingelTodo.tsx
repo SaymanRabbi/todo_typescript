@@ -8,10 +8,20 @@ interface Props {
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 const SingelTodo: React.FC<Props> = ({ todo, todos, setTodos }: Props) => {
-  console.log(todo);
+  const handelDone = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  };
   return (
     <form className="singel_todo_form">
-      <span className="todo_singel_text">{todo.todo}</span>
+      {todo.isDone ? (
+        <s className="todo_singel_text">{todo.todo}</s>
+      ) : (
+        <span className="todo_singel_text">{todo.todo}</span>
+      )}
       <div>
         <span className="icon">
           <AiFillEdit />
@@ -19,7 +29,7 @@ const SingelTodo: React.FC<Props> = ({ todo, todos, setTodos }: Props) => {
         <span className="icon">
           <AiFillDelete />
         </span>
-        <span className="icon">
+        <span className="icon" onClick={() => handelDone(todo.id)}>
           <MdDone />
         </span>
       </div>

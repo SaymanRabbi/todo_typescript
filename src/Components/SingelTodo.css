@@ -21,13 +21,13 @@
   font-size: 25px;
   cursor: pointer;
 }
-@media (max-width: 700px) {
-  .singel_todo_form {
-    width: 100%;
-  }
-}
 @media (max-width: 1200px) {
   .singel_todo_form {
     width: 40%;
+  }
+}
+@media (max-width: 700px) {
+  .singel_todo_form {
+    width: 100%;
   }
 }
