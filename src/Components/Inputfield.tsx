@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import "./inputfield.css";
 
 interface Props {
@@ -6,11 +7,13 @@ interface Props {
   handelAdd: (e: React.FormEvent) => void;
 }
 const Inputfield = ({ todo, setTodo, handelAdd }: Props) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   return (
     <form className="form" onSubmit={(e) => handelAdd(e)}>
       <input
         type="text"
         placeholder="Enter A task"
+        ref={inputRef}
         className="input_box"
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
