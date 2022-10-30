@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import "./App.css";
 import Inputfield from "./Components/Inputfield";
 import Todolist from "./Components/Todolist";
@@ -17,8 +17,11 @@ const App: React.FC = () => {
       setTodo("");
     }
   };
+  const onDragEnd = (result: DropResult) => {
+    console.log(result);
+  };
   return (
-    <DragDropContext onDragEnd={() => {}}>
+    <DragDropContext onDragEnd={onDragEnd}>
       <div className="App">
         <span className="heading">TodoList</span>
         <Inputfield todo={todo} setTodo={setTodo} handelAdd={handelAdd} />
