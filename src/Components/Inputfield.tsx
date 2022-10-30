@@ -7,7 +7,7 @@ interface Props {
 }
 const Inputfield = ({ todo, setTodo, handelAdd }: Props) => {
   return (
-    <form className="form" onSubmit={handelAdd}>
+    <form className="form" onSubmit={(e) => handelAdd(e)}>
       <input
         type="text"
         placeholder="Enter A task"
