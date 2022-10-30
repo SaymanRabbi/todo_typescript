@@ -16,32 +16,46 @@ const Todolist: React.FC<Props> = ({
 }: Props) => {
   return (
     <div className="Container">
-      <Droppable>
-        <div className="todos todosactive_task">
-          <span className="todos_heading">Active Task</span>
+      <Droppable droppableId="TodosList">
+        {(provided) => (
+          <div
+            className="todos"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            <span className="todos_heading">Active Task</span>
 
-          {todos.map((todo) => (
-            <SingelTodo
-              todo={todo}
-              key={todo.id}
-              todos={todos}
-              setTodos={setTodos}
-            />
-          ))}
-        </div>
+            {todos.map((todo) => (
+              <SingelTodo
+                todo={todo}
+                key={todo.id}
+                todos={todos}
+                setTodos={setTodos}
+              />
+            ))}
+          </div>
+        )}
       </Droppable>
-      <div className="todos complete_task">
-        <span className="todos_heading">Completed Task</span>
+      <Droppable droppableId="TodosRemove">
+        {(provided) => (
+          <div
+            className="todos complete_task"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            <span className="todos_heading">Completed Task</span>
 
-        {todos.map((todo) => (
-          <SingelTodo
-            todo={todo}
-            key={todo.id}
-            todos={todos}
-            setTodos={setTodos}
-          />
-        ))}
-      </div>
+            {completedTodos.map((todo) => (
+              <SingelTodo
+                todo={todo}
+                key={todo.id}
+                todos={completedTodos}
+                setTodos={setCompletedTodos}
+              />
+            ))}
+          </div>
+        )}
+      </Droppable>
     </div>
   );
 };
