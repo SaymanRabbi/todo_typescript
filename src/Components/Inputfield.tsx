@@ -7,7 +7,13 @@ interface Props {
 const Inputfield = ({ todo, setTodo }: Props) => {
   return (
     <form className="form">
-      <input type="text" placeholder="Enter A task" className="input_box" />
+      <input
+        type="text"
+        placeholder="Enter A task"
+        className="input_box"
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+      />
       <button className="input_submit" type="submit">
         Go
       </button>
