@@ -3,7 +3,7 @@ import "./App.css";
 const App: React.FC = () => {
   return (
     <div className="App">
-      <span>TodoList</span>
+      <span className="heading">TodoList</span>
     </div>
   );
 };
