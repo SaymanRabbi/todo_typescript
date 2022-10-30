@@ -1,0 +1,8 @@
+.singel_todo_form {
+  display: flex;
+  width: 29.5%;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 15px;
+  background-color: rgba(249, 180, 45, 1);
+}
