@@ -9,7 +9,13 @@ interface Props {
 const Inputfield = ({ todo, setTodo, handelAdd }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   return (
-    <form className="form" onSubmit={(e) => handelAdd(e)}>
+    <form
+      className="form"
+      onSubmit={(e) => {
+        handelAdd(e);
+        inputRef.current?.blur();
+      }}
+    >
       <input
         type="text"
         placeholder="Enter A task"
