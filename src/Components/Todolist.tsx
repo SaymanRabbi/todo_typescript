@@ -1,25 +1,35 @@
+import { Droppable } from "react-beautiful-dnd";
 import { Todo } from "../model";
 import SingelTodo from "./SingelTodo";
 import "./Todolist.css";
 interface Props {
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  completedTodos: Todo[];
+  setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
-const Todolist: React.FC<Props> = ({ todos, setTodos }: Props) => {
+const Todolist: React.FC<Props> = ({
+  todos,
+  setTodos,
+  completedTodos,
+  setCompletedTodos,
+}: Props) => {
   return (
     <div className="Container">
-      <div className="todos todosactive_task">
-        <span className="todos_heading">Active Task</span>
+      <Droppable>
+        <div className="todos todosactive_task">
+          <span className="todos_heading">Active Task</span>
 
-        {todos.map((todo) => (
-          <SingelTodo
-            todo={todo}
-            key={todo.id}
-            todos={todos}
-            setTodos={setTodos}
-          />
-        ))}
-      </div>
+          {todos.map((todo) => (
+            <SingelTodo
+              todo={todo}
+              key={todo.id}
+              todos={todos}
+              setTodos={setTodos}
+            />
+          ))}
+        </div>
+      </Droppable>
       <div className="todos complete_task">
         <span className="todos_heading">Completed Task</span>
 
