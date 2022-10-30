@@ -5,4 +5,29 @@
   padding: 20px;
   margin-top: 15px;
   background-color: rgba(249, 180, 45, 1);
+  align-items: center;
+}
+.todo_singel_text {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  font-size: 20px;
+}
+.todo_singel_text:focus {
+  outline: none;
+}
+.icon {
+  margin-left: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .singel_todo_form {
+    width: 100%;
+  }
+}
+@media (max-width: 1200px) {
+  .singel_todo_form {
+    width: 40%;
+  }
 }
