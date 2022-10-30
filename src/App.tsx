@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Inputfield from "./Components/Inputfield";
 import { Todo } from "./model";
@@ -6,10 +6,14 @@ import { Todo } from "./model";
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
+
+  const handelAdd = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
   return (
     <div className="App">
       <span className="heading">TodoList</span>
-      <Inputfield todo={todo} setTodo={setTodo} />
+      <Inputfield todo={todo} setTodo={setTodo} handelAdd={handelAdd} />
     </div>
   );
 };
